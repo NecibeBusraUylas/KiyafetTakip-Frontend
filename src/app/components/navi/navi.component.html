@@ -1,0 +1,60 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+    <div class="container">
+      <a style="color: rgb(255, 165, 0)" class="navbar-brand" class="btn btn-dark" >Dr. Lütfi Kırdar Şehir Hastanesi</a >
+      <a *ngIf="isAuthenticated() && isAdmin()" class="btn btn-dark" (click)="staffs()"  style="border-radius: 50px; width: 100px">
+        <i class="fa fa-trash-o fa-lg"></i>Ana Sayfa</a  >
+      <button
+        class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false"  aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end"  id="navbarSupportedContent" >
+        <li *ngIf="!isAuthenticated()">
+          <a class="btn btn-danger"  (click)="register()" style="border-radius: 50px; width: 100p" >
+            <i class="fa fa-trash-o fa-lg"></i>
+            Kayıt Ol</a >
+        </li>
+        <li *ngIf="isAuthenticated() && isAdmin()">
+          <a  class="btn btn-danger"  (click)="clotheAdd()"  style="border-radius: 100px; width: 100px" >
+            <i class="fa fa-trash-o fa-lg"></i>
+            Kıyafet Tipi Ekle</a >
+        </li>
+        <li *ngIf="isAuthenticated() && isAdmin()">
+          <a class="btn btn-danger"  (click)="staffUpdate()"  style="border-radius: 100px; width: 100p" >
+            <i class="fa fa-trash-o fa-lg"></i>Personel Güncelle</a
+ >
+        </li>
+      </div>
+      <div class="btn-group" *ngIf="isAuthenticated() && getCurrentUser()">
+        <button
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ getCurrentUser().nameSurname }}
+        </button>
+        <ul id="fon" class="dropdown-menu">
+          <li *ngIf="method()">
+            <a class="dropdown-item">
+            <b> {{ userOrAdmin }}</b>
+            </a >
+          </li>
+          <li>
+          <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/profile">
+            <b> Güncelle</b>
+            </a>
+          </li>
+          <li (click)="signOut()" routerLink="/login">
+            <a class="dropdown-item"  >
+            <i class="cis-account-logout"></i><b> Çıkış Yap</b></a   >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

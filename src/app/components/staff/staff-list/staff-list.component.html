@@ -1,0 +1,43 @@
+<div class="container">
+ <div *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<div>
+  <label for="filterTex1" class="form-label">Personelde ad soyad ile arama</label>
+  <input type="text" [(ngModel)]="filterText1" class="form-control" id="filterText1" />
+</div>
+<table *ngIf="dataLoaded == true" class="table">
+  <thead>
+    <tr>
+    <th>Id</th>
+      <th>Sicil No</th>
+      <th>Adı Soyadı</th>
+      <th>Kart No</th>
+      <th>Bölüm Adı</th>
+      <th>Departman Adı</th>
+      <th>Aktiflik Durumu (0=pasif 1=aktif)</th>
+      <th>Kıyafet Teslim Durumu (0=edilmedi 1=edildi)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let staff of staffs  | staffNameFilter: filterText1  ">
+      <tr>
+       <td>{{ staff.id }}</td>
+        <td>{{ staff.employeeNumber }}</td>
+        <td>{{ staff.nameSurname | uppercase }}</td>
+        <td>{{ staff.cardNumber }}</td>
+        <td>{{ staff.division }}</td>
+        <td>{{ staff.department }}</td>
+        <td>{{ staff.isActive }}</td>
+         <td>{{ staff.isAdded }}</td>
+        <td>
+            <button  class="btn btn-success"  style="border-radius: 50px" routerLink="/staffs/update/{{staff.id}}"  >
+                Güncelle</button>&nbsp;
+        </td>
+      </tr>
+    </ng-container>
+  </tbody> 
+</table>
+</div>

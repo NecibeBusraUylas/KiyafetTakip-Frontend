@@ -1,0 +1,53 @@
+<div class="container">
+  <div
+    *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status" >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="filterText2" class="form-label">Kıyafet verilenlerde kart no ile arama</label>
+      <input type="text" [(ngModel)]="filterText2" class="form-control" id="filterText2"/>
+    </div>
+    <div class="col-md-4">
+      <label for="filterText1" class="form-label"  >Kıyafet verilenlerde ad soyad ile arama</label >
+      <input type="text" [(ngModel)]="filterText1" class="form-control"  id="filterText1"/>
+    </div>
+    <div class="col-md-4">
+      <label for="filterText3" class="form-label">Kıyafet verilenlerde kıyafet ile arama</label>
+      <input type="text" [(ngModel)]="filterText3" class="form-control"   id="filterText3" />
+  </div>
+  <table *ngIf="dataLoaded == true" class="table">
+    <thead>
+      <tr>
+        <th>Sicil No</th>
+        <th>Adı Soyadı</th>
+        <th>Kart No</th>
+        <th>Bölüm Adı</th>
+        <th>Departman Adı</th>
+        <th>Kıyafet Tipi</th>
+        <th>Veriliş Zamanı</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let receiver of receivers| receiverNameFilter: filterText1| receiverCardFilter: filterText2| receiverClotheFilter: filterText3| paginate: {
+                  id: 'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems: totalRecords }"  >
+        <td>{{ receiver.employeeNumber }}</td>
+        <td>{{ receiver.nameSurname | uppercase }}</td>
+        <td>{{ receiver.cardNumber }}</td>
+        <td>{{ receiver.division }}</td>
+        <td>{{ receiver.department }}</td>
+        <td>{{ receiver.clothe }}</td>
+        <td>{{ receiver.time }}</td>
+        <td>
+          <input (click)="deleteReceiver(receiver)" type="button" class="btn btn-success" value="Teslim Al">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination"> <pagination-controls id="listing_pagination" (pageChange)="page = $event" ></pagination-controls>
+  </div>
+  <button type="button" class="btn btn-dark" (click)="generateExcel()"> Kıyafet verilenleri EXCEL'e aktar.</button>
+</div>

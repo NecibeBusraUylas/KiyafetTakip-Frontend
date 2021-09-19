@@ -1,0 +1,70 @@
+<div class='container'> 
+<body class="text-center">
+<div class="content" style="width: 400px;">
+    <div class="col-md-12">
+      <div class="card" >
+        <div class="card-header"> 
+        <h1 class="h3 mb-3 fw-normal">Personel Güncelle</h1>
+        </div>
+        <div class="card-body" style="text-align:left">
+          <form [formGroup]="staffUpdateForm">
+          <div class="mb-3">
+              <label for="id">Id</label>
+              <div class="form-group">
+                <input  type="number" id="id" formControlName="id" class="form-control"   />
+              </div>
+            </div>
+          <div class="mb-3">
+              <label for="employeeNumber">Sicil No</label>
+              <div class="form-group">
+                <input  type="number"  id="employeeNumber" formControlName="employeeNumber"  class="form-control"/>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="nameSurname">Adı Soyadı</label>
+              <div class="form-group">
+                <input  type="text"  id="nameSurname"  formControlName="nameSurname"  class="form-control" />
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber">Kart No</label>
+                <div class="form-group">
+                  <input type="text" id="cardNumber"  formControlName="cardNumber"  class="form-control"/>
+                </div>
+              </div>              
+              <div class="mb-3">
+                <label for="division">Bölüm Adı</label>
+                <div class="form-group">
+                  <input  type="text" id="division" formControlName="division"  class="form-control" />
+                </div>
+              </div>
+            <div class="mb-3">
+              <label for="department">Departman Adı</label>
+              <div class="form-group">
+                <input type="text" id="department" formControlName="department"  class="form-control"/>
+              </div>
+              </div>           
+              <div class="mb-3">
+                <label for="isActive">Aktiflik Durumu (0= pasif 1= aktif)</label>
+                <div class="form-group">
+                  <input  type="number" id="isActive" formControlName="isActive" class="form-control"  placeholder="0= pasif 1= aktif" />
+                </div>
+              </div>
+                <div class="mb-3">
+                <label for="isAdded">Kıyafet Teslim Durumu (0= edilmedi  1= edildi)</label>
+                <div class="form-group">
+                  <input  type="number" id="isAdded" formControlName="isAdded" class="form-control"  placeholder="(0= edilmedi  1= edildi)" />
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="card-footer pb-4">
+        <button  class="btn btn-primary" (click)="staffs()"  style="float: left;"  >
+          <i class="fa fa-trash-o fa-lg" ></i>Ana Sayfa</button>
+            <button class="btn btn-primary" (click)="update()" style="float: right;" >Güncelle <i class="fas fa-pen"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+  </div>

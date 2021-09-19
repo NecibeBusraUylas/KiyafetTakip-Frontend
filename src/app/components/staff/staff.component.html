@@ -1,0 +1,101 @@
+<div class="container">
+  <div
+    *ngIf="dataLoaded == false"
+    class="spinner-border text-primary"
+    role="status"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="filterText2" class="form-label"
+        >Personelde kart no ile arama</label
+      >
+      <input
+        type="text"
+        [(ngModel)]="filterText2"
+        class="form-control"
+        id="filterText2"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="filterText1" class="form-label"
+        >Personelde ad soyad ile arama</label
+      >
+      <input
+        type="text"
+        [(ngModel)]="filterText1"
+        class="form-control"
+        id="filterText1"
+      />
+    </div>
+  </div>
+  <div>
+    <table *ngIf="dataLoaded == true" class="table">
+      <thead>
+        <tr>
+          <th>Sicil No</th>
+          <th>Adı Soyadı</th>
+          <th>Kart No</th>
+          <th>Bölüm Adı</th>
+          <th>Departman Adı</th>
+          <th>Kıyafet Tipi</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container
+          *ngFor="
+            let staff of staffs
+              | staffNameFilter: filterText1
+              | staffCardFilter: filterText2
+              | paginate
+                : {
+                    id: 'listing_pagination',
+                    itemsPerPage: 10,
+                    currentPage: page,
+                    totalItems: totalRecords
+                  }
+          "
+        >
+          <tr *ngIf="staff.isActive && !(staff.isAdded)">
+            <td>{{ staff.employeeNumber }}</td>
+            <td>{{ staff.nameSurname | uppercase }}</td>
+            <td>{{ staff.cardNumber }}</td>
+            <td>{{ staff.division }}</td>
+            <td>{{ staff.department }}</td>
+            <td>
+              <form [formGroup]="clotheAddForm">
+                <select class="form-control" formControlName="clothe">
+                  <option
+                    *ngFor="let clothe of clothes"
+                    placeholder="kıyafet tipi"
+                    [ngValue]="clothe.type"
+                  >
+                    {{ clothe.type }}
+                  </option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <input
+                (click)="addToReceiver(staff)"
+                onClick=""
+                type="button"
+                class="btn btn-success"
+                value="Teslim Et"
+              >
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <pagination-controls
+        id="listing_pagination"
+        (pageChange)="page = $event"
+      ></pagination-controls>
+    </div>
+    <app-receiver></app-receiver>
+  </div>
+</div>

@@ -1,6 +1,7 @@
-# Utarit
+# Utarit Kıyafet Takip-Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
+This project  is an online Clothe Tracking System project and it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.It is linked with the backend project "UtaritKıyafetTakip" in my repositories which was developed with C# using techniques like OOP, SOLID, Cross Cutting Concerns, Autofac, FluentValidation, Exception Handling, Aspect Oriented Programming (AOP), API Development and etc. You can have a look at my backend project from here => 
+[UtaritKıyafetTakip](https://github.com/NecibeBusraUylas/UtaritKiyafetTakip)
 
 ## Development server
 
@@ -25,3 +26,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+

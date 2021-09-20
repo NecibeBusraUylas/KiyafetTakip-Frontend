@@ -1,7 +1,7 @@
-# Utarit Kıyafet Takip-Frontend
+# Kıyafet Takip-Frontend
 
-This project  is an online Clothe Tracking System project and it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.It is linked with the backend project "UtaritKıyafetTakip" in my repositories which was developed with C# using techniques like OOP, SOLID, Cross Cutting Concerns, Autofac, FluentValidation, Exception Handling, Aspect Oriented Programming (AOP), API Development and etc. You can have a look at my backend project from here => 
-[UtaritKıyafetTakip](https://github.com/NecibeBusraUylas/UtaritKiyafetTakip)
+This project  is an online Clothe Tracking System project and it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.It is linked with the backend project "KıyafetTakip" in my repositories which was developed with C# using techniques like OOP, SOLID, Cross Cutting Concerns, Autofac, FluentValidation, Exception Handling, Aspect Oriented Programming (AOP), API Development and etc. You can have a look at my backend project from here => 
+[KıyafetTakip](https://github.com/NecibeBusraUylas/KiyafetTakip)
 
 ## Development server
 
@@ -27,3 +27,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Images
+![](images//1.PNG)

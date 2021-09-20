@@ -28,4 +28,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Images
-![](images//1.PNG)
+### Login Page
+![login](images//1.png)
+
+### User Page
+![](images//2.png)
+
+### Admin Page
+![](images//3.png)
+
+### Admin Add Clothe Type Page
+![](images//4.png)
+
+### Admin Update Staff Information Page
+![](images//5.png)
+
+![](images//6.png)
